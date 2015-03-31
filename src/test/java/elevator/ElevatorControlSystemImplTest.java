@@ -1,8 +1,11 @@
 package elevator;
 
+import model.Elevator;
+import model.ElevatorStatus;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.test.annotation.DirtiesContext;
+import system.ElevatorControlSystemImpl;
 
 import java.util.List;
 

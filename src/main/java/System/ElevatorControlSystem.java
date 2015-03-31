@@ -1,4 +1,6 @@
-package elevator;
+package system;
+
+import model.ElevatorStatus;
 
 import java.util.List;
 

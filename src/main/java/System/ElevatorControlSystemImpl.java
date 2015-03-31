@@ -1,6 +1,8 @@
-package elevator;
+package system;
 
 import com.google.common.base.Optional;
+import model.Elevator;
+import model.ElevatorStatus;
 import org.apache.log4j.Logger;
 
 import java.util.Iterator;

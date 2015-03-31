@@ -1,4 +1,4 @@
-package elevator;
+package model;
 
 public class ElevatorStatus {
     private int elevatorId;
