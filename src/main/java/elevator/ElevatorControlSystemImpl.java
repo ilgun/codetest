@@ -32,19 +32,16 @@ public class ElevatorControlSystemImpl implements ElevatorControlSystem {
             if (elevator.getElevatorId() == elevatorId) {
                 elevator.update(currentFloor, destinationFloor);
                 LOGGER.info("Elevator: " + elevatorId + " updated");
-            } else {
-                LOGGER.error("Elevator cannot be found");
             }
         }
     }
 
     @Override
     public void pickup(Integer elevatorId, Integer pickupFloor, Integer direction) {
+        if (direction == 0) throw new IllegalArgumentException();
         for (Elevator elevator : elevators) {
             if (elevator.getElevatorId() == elevatorId) {
                 elevator.addPickUpOrder(pickupFloor, direction);
-            } else {
-                LOGGER.error("Elevator cannot be found");
             }
         }
     }
