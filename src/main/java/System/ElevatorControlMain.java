@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 import java.util.List;
 
 import static com.google.common.collect.Lists.newArrayList;
+import static model.Elevator.Builder.anElevator;
 import static org.apache.log4j.Logger.getLogger;
 
 public class ElevatorControlMain {
@@ -13,7 +14,11 @@ public class ElevatorControlMain {
 
     public static void main(String[] args) {
         List<Elevator> elevators = newArrayList();
-        elevators.add(new Elevator(1, 0, 1));
+        elevators.add(anElevator()
+                .withElevatorId(1)
+                .withCurrentFloor(0)
+                .withDestinationFloor(0)
+                .build());
 
         ElevatorControlSystemImpl system = new ElevatorControlSystemImpl(elevators);
 

@@ -1,0 +1,12 @@
+Scheduling algorithm behaves as a normal elevator in our lives.
+
+ given(elevator) is on 1st floor.
+ when(elevator) receives order for pickup request on 4rd floor for going up.
+ when(elevator) receives order for pickup request on 3rd floor for going down.
+ then(elevator) goes to 4rd floor for picking up because it check if elevator is already in going up direction.
+ then(elevator) goes to 3rd floor for picking up the last order.
+
+ There are some test examples which should explain the possible situations of the algorithm.
+ Basically elevator decides which floor to go first according to the current direction however, if the is no other in current direction then,
+ elevator will pick the first one for going down.
+ These orders are in a sorted manner thus, elevator shouldn't have problems such as going to 3rd floor first and then 5rd floor and after 4rd floor. (given the pickup directions are same)
