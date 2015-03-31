@@ -6,29 +6,24 @@ import java.util.SortedMap;
 import static com.google.common.collect.Maps.newTreeMap;
 
 public class Elevator {
-    // Map consists of floor , direction
-    private SortedMap<Integer, Integer> elevatorOrders;
-    private SortedMap<Integer, Integer> pickupsOrders;
+
     private final int elevatorId;
     private int currentFloor;
     private int destinationFloor;
+    // Map consists of floor , direction
+    private SortedMap<Integer, Integer> elevatorOrders;
     private Integer currentDirection;
 
-    public Elevator(int elevatorId, int currentFloor, int destinationFloor) {
-        this.elevatorId = elevatorId;
-        this.currentFloor = currentFloor;
-        this.destinationFloor = destinationFloor;
+    private Elevator(Builder builder) {
+        this.elevatorId = builder.elevatorId;
+        this.currentFloor = builder.currentFloor;
+        this.destinationFloor = builder.destinationFloor;
         elevatorOrders = newTreeMap();
-        pickupsOrders = newTreeMap();
         currentDirection = 1;
     }
 
     public Map<Integer, Integer> getElevatorOrders() {
         return elevatorOrders;
-    }
-
-    public Map<Integer, Integer> getPickupsOrders() {
-        return pickupsOrders;
     }
 
     public int getElevatorId() {
@@ -66,5 +61,34 @@ public class Elevator {
 
     public void setDestinationFloor(int destinationFloor) {
         this.destinationFloor = destinationFloor;
+    }
+
+    public static class Builder {
+        private int elevatorId;
+        private int currentFloor;
+        private int destinationFloor;
+
+        public Builder withElevatorId(int elevatorId) {
+            this.elevatorId = elevatorId;
+            return this;
+        }
+
+        public Builder withCurrentFloor(int currentFloor) {
+            this.currentFloor = currentFloor;
+            return this;
+        }
+
+        public Builder withDestinationFloor(int destinationFloor) {
+            this.destinationFloor = destinationFloor;
+            return this;
+        }
+
+        public static Builder anElevator() {
+            return new Builder();
+        }
+
+        public Elevator build() {
+            return new Elevator(this);
+        }
     }
 }

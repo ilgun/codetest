@@ -10,6 +10,7 @@ import system.ElevatorControlSystemImpl;
 import java.util.List;
 
 import static com.google.common.collect.Lists.newArrayList;
+import static model.Elevator.Builder.anElevator;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.springframework.test.annotation.DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD;
@@ -22,10 +23,10 @@ public class ElevatorControlSystemImplTest {
     @Before
     public void creatingControlSystem() {
         List<Elevator> elevators = newArrayList();
-        elevators.add(new Elevator(0, 0, 1));
-        elevators.add(new Elevator(1, 1, 2));
-        elevators.add(new Elevator(2, 1, 1));
-        elevators.add(new Elevator(3, 1, 1));
+        elevators.add(createElevatorFor(0, 0, 1));
+        elevators.add(createElevatorFor(1, 1, 2));
+        elevators.add(createElevatorFor(2, 1, 1));
+        elevators.add(createElevatorFor(3, 1, 1));
 
         system = new ElevatorControlSystemImpl(elevators);
     }
@@ -98,5 +99,13 @@ public class ElevatorControlSystemImplTest {
     @Test(expected = IllegalArgumentException.class)
     public void throwsExceptionForWrongPickUpRequest() {
         system.pickup(1, 0, 0);
+    }
+
+    private Elevator createElevatorFor(int elevatorId, int currentFloor, int destinationFloor) {
+        return anElevator()
+                .withElevatorId(elevatorId)
+                .withCurrentFloor(currentFloor)
+                .withDestinationFloor(destinationFloor)
+                .build();
     }
 }
