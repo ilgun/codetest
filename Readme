@@ -1,3 +1,4 @@
+A)Algorithm
 Scheduling algorithm behaves as a normal elevator in our lives.
 
  given(elevator) is on 1st floor.
@@ -10,3 +11,12 @@ Scheduling algorithm behaves as a normal elevator in our lives.
  Basically elevator decides which floor to go first according to the current direction however, if the is no other in current direction then,
  elevator will pick the first one for going down.
  These orders are in a sorted manner thus, elevator shouldn't have problems such as going to 3rd floor first and then 5rd floor and after 4rd floor. (given the pickup directions are same)
+
+
+
+ B)Instructions
+ Project is written in Java 8, if Java 7 has to be the SDK then , only change should be for optionals.
+ One can change java.optionals to guava.optionals then there shouldn't be any other problems
+
+Project is based on maven and thus, it should be imported as maven project.
+Given there are not many libraries used from maven, thus one can import these jars to project path and ignore maven.
