@@ -22,24 +22,24 @@ public class ElevatorControlMain {
 
         ElevatorControlSystemImpl system = new ElevatorControlSystemImpl(elevators);
 
-        LOGGER.info("Current floor: " + system.getStatus().get(0).getCurrentFloor());
-        LOGGER.info("Destination Floor: " + system.getStatus().get(0).getDestinationFloor());
+        LOGGER.info("Current floor: " + system.getStatus(1).get().getCurrentFloor());
+        LOGGER.info("Destination Floor: " + system.getStatus(1).get().getDestinationFloor());
 
         system.step();
 
-        LOGGER.info("Current floor: " + system.getStatus().get(0).getCurrentFloor());
-        LOGGER.info("Destination Floor: " + system.getStatus().get(0).getDestinationFloor());
+        LOGGER.info("Current floor: " + system.getStatus(1).get().getCurrentFloor());
+        LOGGER.info("Destination Floor: " + system.getStatus(1).get().getDestinationFloor());
 
         system.update(1, 2, 2);
 
-        LOGGER.info("Current floor: " + system.getStatus().get(0).getCurrentFloor());
-        LOGGER.info("Destination Floor: " + system.getStatus().get(0).getDestinationFloor());
+        LOGGER.info("Current floor: " + system.getStatus(1).get().getCurrentFloor());
+        LOGGER.info("Destination Floor: " + system.getStatus(1).get().getDestinationFloor());
 
         system.pickup(1, 5, 1);
 
         LOGGER.info("Pickup should happen here");
         system.step();
-        LOGGER.info("Current floor: " + system.getStatus().get(0).getCurrentFloor());
-        LOGGER.info("Destination Floor: " + system.getStatus().get(0).getDestinationFloor());
+        LOGGER.info("Current floor: " + system.getStatus(1).get().getCurrentFloor());
+        LOGGER.info("Destination Floor: " + system.getStatus(1).get().getDestinationFloor());
     }
 }

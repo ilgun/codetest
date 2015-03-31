@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Map;
 
 import static com.google.common.base.Optional.absent;
-import static com.google.common.collect.Lists.newArrayList;
 import static java.lang.Integer.reverse;
 import static org.apache.log4j.Logger.getLogger;
 
@@ -25,12 +24,13 @@ public class ElevatorControlSystemImpl implements ElevatorControlSystem {
     }
 
     @Override
-    public List<ElevatorStatus> getStatus() {
-        List<ElevatorStatus> statuses = newArrayList();
+    public Optional<ElevatorStatus> getStatus(Integer elevatorId) {
         for (Elevator elevator : elevators) {
-            statuses.add(new ElevatorStatus(elevator.getElevatorId(), elevator.getCurrentFloor(), elevator.getDestinationFloor()));
+            if (elevator.getElevatorId() == elevatorId) {
+                return Optional.of(new ElevatorStatus(elevator.getElevatorId(), elevator.getCurrentFloor(), elevator.getDestinationFloor()));
+            }
         }
-        return statuses;
+        return Optional.absent();
     }
 
     @Override

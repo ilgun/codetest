@@ -1,12 +1,11 @@
 package system;
 
+import com.google.common.base.Optional;
 import model.ElevatorStatus;
-
-import java.util.List;
 
 public interface ElevatorControlSystem {
 
-    List<ElevatorStatus> getStatus();
+    Optional<ElevatorStatus> getStatus(Integer elevatorId);
 
     void update(Integer elevatorId, Integer currentFloor, Integer destinationFloor);
 
